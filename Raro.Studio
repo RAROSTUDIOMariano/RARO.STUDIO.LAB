@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RARO STUDIO LAB - Innovación Digital y Experiencias Inmersivas</title>
+    <!-- Carga de Tailwind CSS para un diseño rápido y responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Configuración de fuente y tema oscuro */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+        :root {
+            --color-primary: #0f172a; /* Slate-900 para fondo */
+            --color-secondary: #1e293b; /* Slate-800 para tarjetas */
+            --color-accent: #3b82f6; /* Blue-500 para acentos */
+            --color-text-light: #f1f5f9; /* Slate-100 para texto principal */
+            --color-text-muted: #94a3b8; /* Slate-400 para texto secundario */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            transition: background-color 0.3s, color 0.3s;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif; /* Fuente futurista para títulos */
+        }
+
+        /* Estilo para secciones, centrado en el contenido */
+        .section-container {
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 1rem;
+        }
+
+        /* Hero Section Styling: Efecto de fondo cyberpunk/digital */
+        #hero {
+            background-color: #0f172a;
+            position: relative;
+            overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 10% 20%, #1e3a8a30 0%, #17171700 80%),
+                              radial-gradient(circle at 90% 80%, #1e3a8a30 0%, #17171700 80%);
+            background-size: 80% 80%;
+            opacity: 0.6;
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Estilo para las tarjetas de proyectos */
+        .project-card {
+            background-color: var(--color-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #334155;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .project-image {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* Estilo para las tarjetas del equipo */
+        .team-member-card {
+            background-color: var(--color-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+        .team-role {
+            color: var(--color-accent);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación Fija -->
+    <nav class="sticky top-0 bg-gray-900 bg-opacity-95 backdrop-blur-sm z-50 shadow-lg">
+        <div class="section-container flex justify-between items-center py-4">
+            <div class="text-2xl font-bold tracking-widest text-white">RARO<span class="text-blue-500">.LAB</span></div>
+            <div class="space-x-8 text-sm font-semibold">
+                <a href="#proyectos" class="hover:text-blue-500 transition duration-300">Proyectos VR/VFX</a>
+                <a href="#otros" class="hover:text-blue-500 transition duration-300">Otros Proyectos</a>
+                <a href="#equipo" class="hover:text-blue-500 transition duration-300">Equipo</a>
+                <a href="#contacto" class="hover:text-blue-500 transition duration-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Sección Principal (Hero) -->
+    <section id="hero" class="py-24 md:py-32 lg:py-40">
+        <div class="hero-content section-container text-center">
+            <h1 class="text-7xl md:text-8xl lg:text-9xl font-extrabold mb-4 uppercase leading-none">
+                Innovación <span class="text-blue-500">Digital</span>
+            </h1>
+            <p class="text-xl md:text-3xl text-gray-300 font-semibold mb-8 max-w-4xl mx-auto">
+                Somos un estudio creativo especializado en la vanguardia de experiencias inmersivas.
+            </p>
+            <div class="flex justify-center items-center gap-6 text-gray-400">
+                <span class="text-lg">REALIDAD VIRTUAL | PRODUCCIÓN VIRTUAL | VFX | 3D</span>
+                <i class="fa-solid fa-cube text-blue-500 text-2xl animate-pulse"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Sección Quiénes Somos y Distinción -->
+    <section id="somos" class="section-container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-5xl font-bold mb-6 text-white border-b-4 border-blue-500 inline-block pb-2">
+                    Nuestra Trayectoria
+                </h2>
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    Con una sólida trayectoria que evoluciona de Wolfpack Multimedia, hemos perfeccionado nuestras capacidades en 3D, Realidad Virtual (VR), Realidad Mixta (MR) y Producción Virtual.
+                </p>
+                <p class="text-gray-400 text-md italic">
+                    Impulsados por el desarrollo en Unreal Engine y la creación de VFX de alto impacto para experiencias inmersivas.
+                </p>
+
+                <div class="mt-10">
+                    <h3 class="text-3xl font-bold mb-4 text-blue-500">
+                        Lo que nos distingue
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-lightbulb text-blue-500 mt-1"></i>Búsqueda incansable de la innovación.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-handshake text-blue-500 mt-1"></i>Colaboración centrada en el cliente.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-bolt text-blue-500 mt-1"></i>Resolución proactiva de problemas.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-microchip text-blue-500 mt-1"></i>Integración de tecnología de vanguardia.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-award text-blue-500 mt-1"></i>Compromiso con una calidad excepcional.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Imagen de Emojis que "flotan" -->
+            <div class="rounded-xl overflow-hidden shadow-2xl">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17887208170278788358" alt="Digital Innovation for immersive experiences" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Sección de Proyectos VR Destacados -->
+    <section id="proyectos" class="section-container">
+        <h2 class="text-5xl font-bold text-center mb-16 text-white">
+            <span class="border-b-4 border-blue-500 pb-2">PROYECTOS VR</span> DESTACADOS
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Tarjeta 1: CRC VR EXPERIENCE -->
+            <div class="project-card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/6774902102142278917" alt="CRC VR Experience" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">CRC VR EXPERIENCE</h3>
+                    <span class="inline-block bg-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full text-white mb-3">Multiplayer VR Tour</span>
+                    <p class="text-gray-400 text-sm">Tour virtual multijugador para el centro de reciclaje de Buenos Aires. Una experiencia perfectamente sincronizada para generar un sentido de inmersión colectivo.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: METEGOL ARGENTINO VR -->
+            <div class="project-card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/7101569424754388658" alt="METEGOL ARGENTINO VR" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">METEGOL ARGENTINO VR</h3>
+                    <span class="inline-block bg-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full text-white mb-3">Juego VR / MR</span>
+                    <p class="text-gray-400 text-sm">Juego de realidad virtual multijugador que recrea la pasión del metegol argentino en un estadio clásico. En desarrollo, con potencial para ligas y torneos online.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: FANGIO VR -->
+            <div class="project-card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/13811651765181747805" alt="FANGIO VR" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">FANGIO VR</h3>
+                    <span class="inline-block bg-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full text-white mb-3">Experiencia Histórica F1</span>
+                    <p class="text-gray-400 text-sm">Simulación inmersiva de Pit Stop en Fórmula 1 con revisión histórica. Transporta a los usuarios al Gran Premio de Alemania de 1957 para vivir la estrategia de Fangio.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: BURGER KING VR -->
+            <div class="project-card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/1109403867667822453" alt="BURGER KING VR" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">BURGER KING VR</h3>
+                    <span class="inline-block bg-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full text-white mb-3">Gamificación RRHH</span>
+                    <p class="text-gray-400 text-sm">Juego de realidad virtual diseñado para atraer postulantes a trabajar en restaurantes BK. Un entorno divertido para aprender y demostrar habilidades en la cocina.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5: PS5 - UNLIMITED ACCESS -->
+            <div class="project-card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/18386187748443314589" alt="PLAYSTATION 5 - UNLIMITED ACCESS" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">PS5 - UNLIMITED ACCESS</h3>
+                    <span class="inline-block bg-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full text-white mb-3">Escenario Virtual LED</span>
+                    <p class="text-gray-400 text-sm">Escenario virtual futurista para el lanzamiento de la PlayStation 5, con influencers. Permitió ubicar al artista dentro del hardware de la consola.</p>
+                </div>
+            </div>
+
+             <!-- Tarjeta 6: SANOFI (Virtual Production) -->
+            <div class="project-card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/11516086717524021200" alt="SANOFI" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">SANOFI</h3>
+                    <span class="inline-block bg-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full text-white mb-3">Producción Virtual</span>
+                    <p class="text-gray-400 text-sm">Desarrollo de escenarios animados implementados para producción virtual con pantallas LED. Trabajo en co-producción con Media Monks y filmado en Francia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Sección Otros Proyectos/Servicios (VFX y 3D) -->
+    <section id="otros" class="section-container pt-0">
+        <h2 class="text-4xl font-bold text-left mb-8 text-white border-b-2 border-gray-600 inline-block pb-1">
+            <span class="text-blue-500">OTROS</span> TRABAJOS & VFX
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Proyecto 1: Halsey + Marshmello (VFX Anime) -->
+            <div class="project-card md:col-span-1">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/3026365449757656910" alt="HALSEY + MARSHMELLO" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">HALSEY + MARSHMELLO (Be Kind)</h3>
+                    <p class="text-gray-400 text-sm mb-3">Escenario anime 3D de una esquina de Tokio para el videoclip de "Be Kind". Modelado en Blender y texturas a mano para lograr el estilo. Trabajo en co-producción internacional.</p>
+                    <div class="text-xs text-gray-500">**Herramientas:** Blender, Unreal, Octane render.</div>
+                </div>
+            </div>
+            <!-- Proyecto 2: Voltaren (Escenarios Hiperrealistas) -->
+            <div class="project-card md:col-span-1">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/18322767078351052309" alt="VOLTAREN Laboratorio" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">VOLTAREN / GSK</h3>
+                    <p class="text-gray-400 text-sm mb-3">Desarrollo de dos escenarios hiperrealistas (Farmacia y Laboratorio) para la filmación de una campaña, donde un especialista recomienda el producto.</p>
+                    <div class="text-xs text-gray-500">**Herramientas:** C4D, Blender, Unreal, Octane render.</div>
+                </div>
+            </div>
+            <!-- Proyecto 3: FORD (Coche 3D) -->
+            <div class="project-card md:col-span-1">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/2070381395562723709" alt="FORD Publicidad 3D" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">FORD</h3>
+                    <p class="text-gray-400 text-sm mb-3">Corto publicitario realizado íntegramente en 3D para presentar las capacidades en proyectos automotrices. Incluye modelado, texturizado, iluminación y animación de cámaras.</p>
+                    <div class="text-xs text-gray-500">**Herramientas:** Modeling, Texture, Lightning, Render, Sound.</div>
+                </div>
+            </div>
+            <!-- Proyecto 4: CRC Interactive Model -->
+            <div class="project-card md:col-span-1">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17696434491740928731" alt="Modelo Interactivo CRC" class="project-image">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">CENTRO DE RECICLAJE / Modelo Interactivo</h3>
+                    <p class="text-gray-400 text-sm mb-3">Modelo físico volumétrico interactivo con técnica de *mapping* y una tablet como controlador para realizar un tour guiado con videos sobre las plantas de reciclaje.</p>
+                    <div class="text-xs text-gray-500">**Herramientas:** Blender, AE, Premiere, Resolume Arena, Touch OSC.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Sección Equipo -->
+    <section id="equipo" class="section-container bg-gray-900 border-t border-b border-blue-900">
+        <h2 class="text-5xl font-bold text-center mb-16 text-white">
+            <span class="border-b-4 border-blue-500 pb-2">CONOCE</span> AL EQUIPO
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+
+            <!-- Miembro 1: MARIANO -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=M" alt="Mariano" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">MARIANO</h4>
+                <p class="team-role">Productor Ejecutivo | Project Leader</p>
+                <p class="text-gray-400 text-sm mt-2">Creativo, Fotogrametrista, Músico.</p>
+            </div>
+
+            <!-- Miembro 2: UAN -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=U" alt="Uan" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">UAN</h4>
+                <p class="team-role">Director de Arte | 3D Artist Sr.</p>
+                <p class="text-gray-400 text-sm mt-2">Especialista en Blender & Unreal Engine.</p>
+            </div>
+
+            <!-- Miembro 3: CATA -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=C" alt="Cata" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">CATA</h4>
+                <p class="team-role">3D Artist | Technical Animator</p>
+                <p class="text-gray-400 text-sm mt-2">Especialista en Blender, Maya, C4D & Unreal Engine.</p>
+            </div>
+
+            <!-- Miembro 4: ERTIE -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=E" alt="Ertie" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">ERTIE</h4>
+                <p class="team-role">Sr. Developer</p>
+                <p class="text-gray-400 text-sm mt-2">Especialista en Unreal Engine.</p>
+            </div>
+
+            <!-- Miembro 5: TADEO -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=T" alt="Tadeo" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">TADEO</h4>
+                <p class="team-role">3D Artist Sr. | Developer Jr.</p>
+                <p class="text-gray-400 text-sm mt-2">Especialista en Blender, Unity & Unreal Engine.</p>
+            </div>
+
+            <!-- Miembro 6: NATALI -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=N" alt="Natali" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">NATALI</h4>
+                <p class="team-role">Compo & VFX Artist</p>
+                <p class="text-gray-400 text-sm mt-2">Especialista en Nuke & Blender.</p>
+            </div>
+
+            <!-- Miembro 7: MARCOS -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=M" alt="Marcos" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">MARCOS</h4>
+                <p class="team-role">Jr. Developer | 3D Artist</p>
+                <p class="text-gray-400 text-sm mt-2">Especialista en Blender, Unity & Unreal Engine.</p>
+            </div>
+
+            <!-- Miembro 8: ROCHI -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=R" alt="Rochi" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">ROCHI</h4>
+                <p class="team-role">Graphic Designer</p>
+                <p class="text-gray-400 text-sm mt-2">Ilustradora & Concept Artist.</p>
+            </div>
+
+            <!-- Miembro 9: NAHUE -->
+            <div class="team-member-card">
+                <img src="https://placehold.co/100x100/1e293b/FFFFFF?text=N" alt="Nahue" class="mx-auto rounded-full w-24 h-24 mb-4 border-2 border-blue-500">
+                <h4 class="text-xl font-bold text-white">NAHUE</h4>
+                <p class="team-role">Graphic Designer</p>
+                <p class="text-gray-400 text-sm mt-2">3D & Motion Graphics Artist.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Sección Contacto y Redes -->
+    <section id="contacto" class="section-container text-center">
+        <h2 class="text-5xl font-bold mb-8 text-white">
+            <span class="text-blue-500">CONÉCTATE</span> CON NOSOTROS
+        </h2>
+        <p class="text-xl text-gray-300 mb-12">Estamos listos para llevar tu proyecto a la vanguardia de la innovación digital.</p>
+
+        <div class="max-w-xl mx-auto space-y-8">
+            <!-- Info de Contacto -->
+            <div class="flex flex-col sm:flex-row justify-center gap-8 text-lg font-semibold">
+                <div class="flex items-center gap-3 text-gray-300">
+                    <i class="fa-solid fa-phone text-blue-500 text-2xl"></i>
+                    <span>+54911 31929496</span>
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <i class="fa-solid fa-at text-blue-500 text-2xl"></i>
+                    <span>raro.studio.lab</span>
+                </div>
+            </div>
+
+            <!-- Redes Sociales (Íconos Circulares) -->
+            <div class="flex justify-center gap-6 text-gray-400 text-4xl">
+                <!-- Facebook -->
+                <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full border-2 border-blue-500 hover:bg-blue-500 hover:text-white transition duration-300">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <!-- WhatsApp -->
+                <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full border-2 border-green-500 hover:bg-green-500 hover:text-white transition duration-300">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <!-- Twitter/X -->
+                <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full border-2 border-gray-400 hover:bg-white hover:text-gray-900 transition duration-300">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <!-- Instagram -->
+                <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full border-2 border-pink-500 hover:bg-pink-500 hover:text-white transition duration-300">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+
+            <!-- QR Code (Placeholder) -->
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <img src="https://placehold.co/150x150/1e293b/94a3b8?text=QR+raro.studio.lab" alt="QR Code Raro Studio Lab" class="mx-auto rounded-lg mb-4">
+                <p class="text-gray-400 font-bold tracking-wider">ESCANEA PARA CONECTAR</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-6 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 RARO STUDIO LAB. Todos los derechos reservados. Desarrollado con el poder de la inmersión.</p>
+    </footer>
+
+</body>
+</html>
